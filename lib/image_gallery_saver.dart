@@ -49,7 +49,7 @@ class GalleryHelper {
           '${dir.path}/${name ?? DateTime.now().millisecondsSinceEpoch}.jpg');
       await file.writeAsBytes(compressedBytes, flush: true);
 
-      final result = await GallerySaver.saveImage(file.path, albumName: albumName);
+      final result = await GallerySaverPlus.saveImage(file.path, albumName: albumName);
       return result ?? false;
     } catch (e) {
       print("❌ Error saving image: $e");
@@ -76,8 +76,8 @@ class GalleryHelper {
 
       final ext = file.path.split('.').last.toLowerCase();
       final result = (['mp4', 'mov', 'avi'].contains(ext))
-          ? await GallerySaver.saveVideo(file.path, albumName: albumName)
-          : await GallerySaver.saveImage(file.path, albumName: albumName);
+          ? await GallerySaverPlus.saveVideo(file.path, albumName: albumName)
+          : await GallerySaverPlus.saveImage(file.path, albumName: albumName);
 
       return result ?? false;
     } catch (e) {
