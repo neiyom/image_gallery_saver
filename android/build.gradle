@@ -37,16 +37,11 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_21
-        targetCompatibility JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = "21"
-    }
-
-    // Force JVM Toolchain (Gradle 8+)
-    kotlin {
-        jvmToolchain(21)
+        jvmTarget = '21'
     }
 }
